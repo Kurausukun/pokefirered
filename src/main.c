@@ -209,14 +209,11 @@ static void InitMainCallbacks(void)
 
 static void CallCallbacks(void)
 {
-    if (!sub_80F5118() && !RunHelpSystemCallback())
-    {
-        if (gMain.callback1)
-            gMain.callback1();
+    if (gMain.callback1)
+        gMain.callback1();
 
-        if (gMain.callback2)
+    if (gMain.callback2)
             gMain.callback2();
-    }
 }
 
 void SetMainCallback2(MainCallback callback)
