@@ -603,3 +603,7 @@ gUnknown_203F440: @ 203F440
 	.include "src/trainer_tower.o"
 	.align 2
 	.include "src/berry_powder.o"
+
+	.align 2
+gSoundInfo:
+	.space 0xFB0

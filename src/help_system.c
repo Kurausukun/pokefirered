@@ -31,7 +31,7 @@ struct HelpSystemVideoState
     /*0x15*/ u8 state;
 };
 
-static EWRAM_DATA u8 sMapTilesBackup[BG_CHAR_SIZE] = {0};
+static EWRAM_DATA u8 sMapTilesBackup[1] = {0};
 EWRAM_DATA u8 gUnknown_203F174 = 0;
 EWRAM_DATA u8 gUnknown_203F175 = 0;
 static EWRAM_DATA u8 sDelayTimer = 0;
