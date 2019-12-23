@@ -1,6 +1,6 @@
 ThreeIsland_PokemonCenter_1F_MapScripts:: @ 8171832
 	map_script 3, ThreeIsland_PokemonCenter_1F_MapScript1_17183D
-	map_script 5, ThreeIsland_PokemonCenter_1F_MapScript2_1BC05C
+@	map_script 5, ThreeIsland_PokemonCenter_1F_MapScript2_1BC05C
 	.byte 0
 
 ThreeIsland_PokemonCenter_1F_MapScript1_17183D:: @ 817183D

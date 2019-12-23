@@ -1,6 +1,6 @@
 OneIsland_PokemonCenter_1F_MapScripts:: @ 8170BF8
 	map_script 3, OneIsland_PokemonCenter_1F_MapScript1_170C4E
-	map_script 5, OneIsland_PokemonCenter_1F_MapScript2_1BC05C
+@	map_script 5, OneIsland_PokemonCenter_1F_MapScript2_1BC05C
 	map_script 1, OneIsland_PokemonCenter_1F_MapScript3_170C0D
 	map_script 2, OneIsland_PokemonCenter_1F_MapScript4_170CA7
 	.byte 0

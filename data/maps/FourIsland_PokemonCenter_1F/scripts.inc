@@ -1,6 +1,6 @@
 FourIsland_PokemonCenter_1F_MapScripts:: @ 8171BEA
 	map_script 3, FourIsland_PokemonCenter_1F_MapScript1_171BF5
-	map_script 5, FourIsland_PokemonCenter_1F_MapScript2_1BC05C
+@	map_script 5, FourIsland_PokemonCenter_1F_MapScript2_1BC05C
 	.byte 0
 
 FourIsland_PokemonCenter_1F_MapScript1_171BF5:: @ 8171BF5

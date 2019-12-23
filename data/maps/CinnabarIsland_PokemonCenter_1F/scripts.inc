@@ -1,6 +1,6 @@
 CinnabarIsland_PokemonCenter_1F_MapScripts:: @ 816E8D7
 	map_script 3, CinnabarIsland_PokemonCenter_1F_MapScript1_16E8E2
-	map_script 5, CinnabarIsland_PokemonCenter_1F_MapScript2_1BC05C
+@	map_script 5, CinnabarIsland_PokemonCenter_1F_MapScript2_1BC05C
 	.byte 0
 
 CinnabarIsland_PokemonCenter_1F_MapScript1_16E8E2:: @ 816E8E2

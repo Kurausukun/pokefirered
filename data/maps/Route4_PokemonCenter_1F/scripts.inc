@@ -1,6 +1,6 @@
 Route4_PokemonCenter_1F_MapScripts:: @ 816F739
 	map_script 3, Route4_PokemonCenter_1F_MapScript1_16F744
-	map_script 5, Route4_PokemonCenter_1F_MapScript2_1BC05C
+@	map_script 5, Route4_PokemonCenter_1F_MapScript2_1BC05C
 	.byte 0
 
 Route4_PokemonCenter_1F_MapScript1_16F744:: @ 816F744

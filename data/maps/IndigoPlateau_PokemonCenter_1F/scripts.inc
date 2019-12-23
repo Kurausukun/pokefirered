@@ -1,6 +1,6 @@
 IndigoPlateau_PokemonCenter_1F_MapScripts:: @ 816EA5A
 	map_script 3, IndigoPlateau_PokemonCenter_1F_MapScript1_16EA65
-	map_script 5, IndigoPlateau_PokemonCenter_1F_MapScript2_1BC05C
+@	map_script 5, IndigoPlateau_PokemonCenter_1F_MapScript2_1BC05C
 	.byte 0
 
 IndigoPlateau_PokemonCenter_1F_MapScript1_16EA65:: @ 816EA65

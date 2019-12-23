@@ -1,6 +1,6 @@
 PewterCity_PokemonCenter_1F_MapScripts:: @ 816A760
 	map_script 3, PewterCity_PokemonCenter_1F_MapScript1_16A76B
-	map_script 5, PewterCity_PokemonCenter_1F_MapScript2_1BC05C
+@	map_script 5, PewterCity_PokemonCenter_1F_MapScript2_1BC05C
 	.byte 0
 
 PewterCity_PokemonCenter_1F_MapScript1_16A76B:: @ 816A76B

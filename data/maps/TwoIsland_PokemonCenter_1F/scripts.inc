@@ -1,6 +1,6 @@
 TwoIsland_PokemonCenter_1F_MapScripts:: @ 81717B4
 	map_script 3, TwoIsland_PokemonCenter_1F_MapScript1_1717BF
-	map_script 5, TwoIsland_PokemonCenter_1F_MapScript2_1BC05C
+@	map_script 5, TwoIsland_PokemonCenter_1F_MapScript2_1BC05C
 	.byte 0
 
 TwoIsland_PokemonCenter_1F_MapScript1_1717BF:: @ 81717BF

@@ -1607,7 +1607,7 @@ EventScript_1A65B8:: @ 81A65B8
 	waitmessage
 	call EventScript_1A65CE
 	special sub_80CC524
-	goto EventScript_1A65EC
+	goto EventScript_1A661D
 	end
 
 EventScript_1A65CE:: @ 81A65CE
@@ -9621,27 +9621,27 @@ EventScript_1BC052:: @ 81BC052
 	setmetatile 5, 3, 759, 1
 	return
 
-CeladonCity_PokemonCenter_1F_MapScript2_1BC05C:: @ 81BC05C
-CeruleanCity_PokemonCenter_1F_MapScript2_1BC05C:: @ 81BC05C
-CinnabarIsland_PokemonCenter_1F_MapScript2_1BC05C:: @ 81BC05C
-FiveIsland_PokemonCenter_1F_MapScript2_1BC05C:: @ 81BC05C
-FourIsland_PokemonCenter_1F_MapScript2_1BC05C:: @ 81BC05C
-FuchsiaCity_PokemonCenter_1F_MapScript2_1BC05C:: @ 81BC05C
-IndigoPlateau_PokemonCenter_1F_MapScript2_1BC05C:: @ 81BC05C
-LavenderTown_PokemonCenter_1F_MapScript2_1BC05C:: @ 81BC05C
-OneIsland_PokemonCenter_1F_MapScript2_1BC05C:: @ 81BC05C
-PewterCity_PokemonCenter_1F_MapScript2_1BC05C:: @ 81BC05C
-Route10_PokemonCenter_1F_MapScript2_1BC05C:: @ 81BC05C
-Route4_PokemonCenter_1F_MapScript2_1BC05C:: @ 81BC05C
-SaffronCity_PokemonCenter_1F_MapScript2_1BC05C:: @ 81BC05C
-SevenIsland_PokemonCenter_1F_MapScript2_1BC05C:: @ 81BC05C
-SixIsland_PokemonCenter_1F_MapScript2_1BC05C:: @ 81BC05C
-ThreeIsland_PokemonCenter_1F_MapScript2_1BC05C:: @ 81BC05C
-TwoIsland_PokemonCenter_1F_MapScript2_1BC05C:: @ 81BC05C
-VermilionCity_PokemonCenter_1F_MapScript2_1BC05C:: @ 81BC05C
-ViridianCity_PokemonCenter_1F_MapScript2_1BC05C:: @ 81BC05C
-	special sub_811999C
-	end
+@CeladonCity_PokemonCenter_1F_MapScript2_1BC05C:: @ 81BC05C
+@CeruleanCity_PokemonCenter_1F_MapScript2_1BC05C:: @ 81BC05C
+@CinnabarIsland_PokemonCenter_1F_MapScript2_1BC05C:: @ 81BC05C
+@FiveIsland_PokemonCenter_1F_MapScript2_1BC05C:: @ 81BC05C
+@FourIsland_PokemonCenter_1F_MapScript2_1BC05C:: @ 81BC05C
+@FuchsiaCity_PokemonCenter_1F_MapScript2_1BC05C:: @ 81BC05C
+@IndigoPlateau_PokemonCenter_1F_MapScript2_1BC05C:: @ 81BC05C
+@LavenderTown_PokemonCenter_1F_MapScript2_1BC05C:: @ 81BC05C
+@OneIsland_PokemonCenter_1F_MapScript2_1BC05C:: @ 81BC05C
+@PewterCity_PokemonCenter_1F_MapScript2_1BC05C:: @ 81BC05C
+@Route10_PokemonCenter_1F_MapScript2_1BC05C:: @ 81BC05C
+@Route4_PokemonCenter_1F_MapScript2_1BC05C:: @ 81BC05C
+@SaffronCity_PokemonCenter_1F_MapScript2_1BC05C:: @ 81BC05C
+@SevenIsland_PokemonCenter_1F_MapScript2_1BC05C:: @ 81BC05C
+@SixIsland_PokemonCenter_1F_MapScript2_1BC05C:: @ 81BC05C
+@ThreeIsland_PokemonCenter_1F_MapScript2_1BC05C:: @ 81BC05C
+@TwoIsland_PokemonCenter_1F_MapScript2_1BC05C:: @ 81BC05C
+@VermilionCity_PokemonCenter_1F_MapScript2_1BC05C:: @ 81BC05C
+@ViridianCity_PokemonCenter_1F_MapScript2_1BC05C:: @ 81BC05C
+@	special sub_811999C
+@	end
 
 EventScript_1BC060:: @ 81BC060
 	special sub_8110AB4

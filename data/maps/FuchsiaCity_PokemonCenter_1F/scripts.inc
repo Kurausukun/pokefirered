@@ -1,6 +1,6 @@
 FuchsiaCity_PokemonCenter_1F_MapScripts:: @ 816D6F1
 	map_script 3, FuchsiaCity_PokemonCenter_1F_MapScript1_16D6FC
-	map_script 5, FuchsiaCity_PokemonCenter_1F_MapScript2_1BC05C
+@	map_script 5, FuchsiaCity_PokemonCenter_1F_MapScript2_1BC05C
 	.byte 0
 
 FuchsiaCity_PokemonCenter_1F_MapScript1_16D6FC:: @ 816D6FC

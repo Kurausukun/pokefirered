@@ -1,6 +1,6 @@
 SixIsland_PokemonCenter_1F_MapScripts:: @ 8171D6A
 	map_script 3, SixIsland_PokemonCenter_1F_MapScript1_171D7A
-	map_script 5, SixIsland_PokemonCenter_1F_MapScript2_1BC05C
+@	map_script 5, SixIsland_PokemonCenter_1F_MapScript2_1BC05C
 	map_script 2, SixIsland_PokemonCenter_1F_MapScript3_171D8D
 	.byte 0
 

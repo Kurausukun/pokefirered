@@ -1,6 +1,6 @@
 LavenderTown_PokemonCenter_1F_MapScripts:: @ 816B0EF
 	map_script 3, LavenderTown_PokemonCenter_1F_MapScript1_16B0FA
-	map_script 5, LavenderTown_PokemonCenter_1F_MapScript2_1BC05C
+@	map_script 5, LavenderTown_PokemonCenter_1F_MapScript2_1BC05C
 	.byte 0
 
 LavenderTown_PokemonCenter_1F_MapScript1_16B0FA:: @ 816B0FA

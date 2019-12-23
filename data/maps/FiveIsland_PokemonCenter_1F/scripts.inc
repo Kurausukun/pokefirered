@@ -1,6 +1,6 @@
 FiveIsland_PokemonCenter_1F_MapScripts:: @ 8171CF1
 	map_script 3, FiveIsland_PokemonCenter_1F_MapScript1_171CFC
-	map_script 5, FiveIsland_PokemonCenter_1F_MapScript2_1BC05C
+@	map_script 5, FiveIsland_PokemonCenter_1F_MapScript2_1BC05C
 	.byte 0
 
 FiveIsland_PokemonCenter_1F_MapScript1_171CFC:: @ 8171CFC

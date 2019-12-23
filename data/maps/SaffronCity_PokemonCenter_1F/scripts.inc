@@ -1,6 +1,6 @@
 SaffronCity_PokemonCenter_1F_MapScripts:: @ 816EFEC
 	map_script 3, SaffronCity_PokemonCenter_1F_MapScript1_16EFF7
-	map_script 5, SaffronCity_PokemonCenter_1F_MapScript2_1BC05C
+@	map_script 5, SaffronCity_PokemonCenter_1F_MapScript2_1BC05C
 	.byte 0
 
 SaffronCity_PokemonCenter_1F_MapScript1_16EFF7:: @ 816EFF7
