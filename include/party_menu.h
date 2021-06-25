@@ -83,5 +83,9 @@ u8 GetPartyIdFromBattlePartyId(u8 battlePartyId);
 void ShowPartyMenuToShowcaseMultiBattleParty(void);
 void ChooseMonForDaycare(void);
 void ChoosePartyMonByMenuType(u8 menuType);
+void Task_ReturnToChooseMonAfterText(u8 taskId);
+void DisplayCantUseFlashMessage(void);
+bool8 SetUpFieldMove_Fly(void);
+void Task_ClosePartyMenu(u8 taskId);
 
 #endif // GUARD_PARTY_MENU_H

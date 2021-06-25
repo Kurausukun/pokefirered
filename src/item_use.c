@@ -1,6 +1,7 @@
 #include "global.h"
 #include "gflib.h"
 #include "battle.h"
+#include "battle_setup.h"
 #include "berry_pouch.h"
 #include "berry_powder.h"
 #include "bike.h"
@@ -13,6 +14,7 @@
 #include "field_specials.h"
 #include "field_weather.h"
 #include "fieldmap.h"
+#include "fldeff.h"
 #include "item.h"
 #include "item_menu.h"
 #include "item_use.h"
@@ -36,6 +38,7 @@
 #include "constants/maps.h"
 #include "constants/moves.h"
 #include "constants/songs.h"
+#include "constants/field_effects.h"
 #include "constants/field_weather.h"
 
 static EWRAM_DATA void (*sItemUseOnFieldCB)(u8 taskId) = NULL;
@@ -68,6 +71,12 @@ static void sub_80A1D58(void);
 static void sub_80A1D68(u8 taskId);
 static void Task_BattleUse_StatBooster_DelayAndPrint(u8 taskId);
 static void Task_BattleUse_StatBooster_WaitButton_ReturnToBattle(u8 taskId);
+static void UseFlashItem(u8 taskId);
+static void SetUpFlashUseCallback(u8 taskId);
+static void DoFlashItem(u8 taskId, TaskFunc task);
+static void UseFlyItem(u8 taskId);
+static void SetUpFlyUseCallback(u8 taskId);
+static void DoFlyItem(u8 taskId, TaskFunc task);
 
 // No clue what this is
 static const u8 sUnref_83E27B4[] = {
@@ -738,9 +747,20 @@ void BattleUseFunc_PokeBallEtc(u8 taskId)
 {
     if (!IsPlayerPartyAndPokemonStorageFull())
     {
-        RemoveBagItem(gSpecialVar_ItemId, 1);
-        Bag_BeginCloseWin0Animation();
-        ItemMenu_StartFadeToExitCallback(taskId);
+        if (!gIsCaptureBlockedByNuzlocke)
+        {
+            RemoveBagItem(gSpecialVar_ItemId, 1);
+            Bag_BeginCloseWin0Animation();
+            ItemMenu_StartFadeToExitCallback(taskId);
+        }
+        else if (gIsSpeciesClauseActive)
+        {
+            DisplayItemMessageInCurrentContext(taskId, FALSE, 4, gText_CantThrowPokeballSpeciesClause);
+        }
+        else
+        {
+            DisplayItemMessageInCurrentContext(taskId, FALSE, 4, gText_CantThrowPokeballNuzlocke);
+        }
     }
     else
     {
@@ -931,4 +951,79 @@ void ItemUse_SetQuestLogEvent(u8 eventId, struct Pokemon * pokemon, u16 itemId, 
         questLog->species = 0xFFFF;
     SetQuestLogEvent(eventId, (void *)questLog);
     Free(questLog);
+}
+
+void FieldUseFunc_Flash(u8 taskId)
+{
+    if (!FlagGet(FLAG_BADGE01_GET))
+    {
+        if (!gTasks[taskId].data[3])
+            DisplayPartyMenuMessage(gText_CantUseUntilNewBadge, TRUE);
+        else
+            DisplayItemMessageOnField(taskId, 4, gText_CantUseUntilNewBadge, Task_ItemUse_CloseMessageBoxAndReturnToField);
+    }
+    else
+    {
+        if (SetUpFieldMove_Flash())
+            UseFlashItem(taskId);
+        else
+            PrintNotTheTimeToUseThat(taskId, gTasks[taskId].data[3]);
+    }
+}
+
+static void UseFlashItem(u8 taskId)
+{
+    gItemUseCB = DoFlashItem;
+    SetUpFlashUseCallback(taskId);
+}
+
+static void SetUpFlashUseCallback(u8 taskId)
+{
+    gBagMenuState.bagCallback = CB2_ReturnToField;
+    ItemMenu_StartFadeToExitCallback(taskId);
+}
+
+static void DoFlashItem(u8 taskId, TaskFunc task)
+{
+    FldEff_UseFlash();
+}
+
+void FieldUseFunc_Fly(u8 taskId)
+{
+    if (!FlagGet(FLAG_BADGE03_GET))
+    {
+        if (!gTasks[taskId].data[3])
+            DisplayItemMessageInBag(taskId, 2, gText_CantUseUntilNewBadge, Task_WaitAButtonAndCloseContextMenu);
+        else
+            DisplayItemMessageOnField(taskId, 4, gText_CantUseUntilNewBadge, Task_ItemUse_CloseMessageBoxAndReturnToField);
+    }
+    else
+    {
+        if (SetUpFieldMove_Fly())
+        {
+            FlagSet(FLAG_BAG_FLY);
+            UseFlyItem(taskId);
+        }
+        else
+        {
+            PrintNotTheTimeToUseThat(taskId, gTasks[taskId].data[3]);
+        }
+    }
+}
+
+static void UseFlyItem(u8 taskId)
+{
+    gItemUseCB = DoFlyItem;
+    SetUpFlyUseCallback(taskId);
+}
+
+static void SetUpFlyUseCallback(u8 taskId)
+{
+    gBagMenuState.bagCallback = CB2_OpenFlyMap;
+    ItemMenu_StartFadeToExitCallback(taskId);
+}
+
+static void DoFlyItem(u8 taskId, TaskFunc task)
+{
+    FldEff_UseFly();
 }

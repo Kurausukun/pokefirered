@@ -77,6 +77,28 @@
 #define BATTLE_TYPE_KYOGRE           0x20000000
 #define BATTLE_TYPE_RAYQUAZA         0x40000000
 #define BATTLE_TYPE_x80000000        0x80000000
+#define BATTLE_TYPE_NOT_NUZLOCKE     BATTLE_TYPE_DOUBLE             \
+                                   | BATTLE_TYPE_LINK               \
+                                   | BATTLE_TYPE_TRAINER            \
+                                   | BATTLE_TYPE_FIRST_BATTLE       \
+                                   | BATTLE_TYPE_LINK_ESTABLISHED   \
+                                   | BATTLE_TYPE_MULTI              \
+                                   | BATTLE_TYPE_BATTLE_TOWER       \
+                                   | BATTLE_TYPE_OLD_MAN_TUTORIAL   \
+                                   | BATTLE_TYPE_EREADER_TRAINER    \
+                                   | BATTLE_TYPE_GHOST_UNVEILED     \
+                                   | BATTLE_TYPE_GHOST              \
+                                   | BATTLE_TYPE_POKEDUDE           \
+                                   | BATTLE_TYPE_TRAINER_TOWER      \
+                                   | BATTLE_TYPE_x100000            \
+                                   | BATTLE_TYPE_x200000            \
+                                   | BATTLE_TYPE_INGAME_PARTNER     \
+                                   | BATTLE_TYPE_x800000            \
+                                   | BATTLE_TYPE_RECORDED           \
+                                   | BATTLE_TYPE_x2000000           \
+                                   | BATTLE_TYPE_x4000000           \
+                                   | BATTLE_TYPE_SECRET_BASE        \
+                                   | BATTLE_TYPE_x80000000
 
 #define IS_BATTLE_TYPE_GHOST_WITHOUT_SCOPE(flags) ((flags) & BATTLE_TYPE_GHOST && !((flags) & BATTLE_TYPE_GHOST_UNVEILED))
 #define IS_BATTLE_TYPE_GHOST_WITH_SCOPE(flags) ((flags) & BATTLE_TYPE_GHOST && (flags) & BATTLE_TYPE_GHOST_UNVEILED)

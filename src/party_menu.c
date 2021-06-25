@@ -147,7 +147,7 @@ static void CursorCB_Register(u8 taskId);
 static void CursorCB_Trade1(u8 taskId);
 static void CursorCB_Trade2(u8 taskId);
 static void CursorCB_FieldMove(u8 taskId);
-static bool8 SetUpFieldMove_Fly(void);
+bool8 SetUpFieldMove_Fly(void);
 static bool8 SetUpFieldMove_Waterfall(void);
 static bool8 SetUpFieldMove_Surf(void);
 static void CB2_InitPartyMenu(void);
@@ -230,7 +230,6 @@ static void DisplayCancelChooseMonYesNo(u8 taskId);
 static void Task_CancelChooseMonYesNo(u8 taskId);
 static void Task_HandleCancelChooseMonYesNoInput(u8 taskId);
 static void PartyMenuDisplayYesNoMenu(void);
-static void Task_ReturnToChooseMonAfterText(u8 taskId);
 static void UpdateCurrentPartySelection(s8 *slotPtr, s8 movementDir);
 static void UpdatePartySelectionSingleLayout(s8 *slotPtr, s8 movementDir);
 static void UpdatePartySelectionDoubleLayout(s8 *slotPtr, s8 movementDir);
@@ -283,7 +282,6 @@ static void Task_HandleSendMailToPCYesNoInput(u8 taskId);
 static void Task_LoseMailMessageYesNo(u8 taskId);
 static void Task_HandleLoseMailMessageYesNoInput(u8 taskId);
 static bool8 TrySwitchInPokemon(void);
-static void DisplayCantUseFlashMessage(void);
 static void DisplayCantUseSurfMessage(void);
 static void Task_CancelAfterAorBPress(u8 taskId);
 static void DisplayFieldMoveExitAreaMessage(u8 taskId);
@@ -1075,7 +1073,7 @@ static void SwapPartyPokemon(struct Pokemon *mon1, struct Pokemon *mon2)
     Free(buffer);
 }
 
-static void Task_ClosePartyMenu(u8 taskId)
+void Task_ClosePartyMenu(u8 taskId)
 {
     BeginNormalPaletteFade(0xFFFFFFFF, -2, 0, 16, RGB_BLACK);
     gTasks[taskId].func = Task_ClosePartyMenuAndSetCB2;
@@ -1573,7 +1571,7 @@ static void Task_WaitForLinkAndReturnToChooseMon(u8 taskId)
     }
 }
 
-static void Task_ReturnToChooseMonAfterText(u8 taskId)
+void Task_ReturnToChooseMonAfterText(u8 taskId)
 {
     if (IsPartyMenuTextPrinterActive() != TRUE)
     {
@@ -4066,7 +4064,7 @@ static void Task_CancelAfterAorBPress(u8 taskId)
         CursorCB_Cancel1(taskId);
 }
 
-static void DisplayCantUseFlashMessage(void)
+void DisplayCantUseFlashMessage(void)
 {
     if (FlagGet(FLAG_SYS_FLASH_ACTIVE) == TRUE)
         DisplayPartyMenuStdMessage(PARTY_MSG_ALREADY_IN_USE);
@@ -4086,7 +4084,7 @@ static bool8 SetUpFieldMove_Surf(void)
     
     GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
     if (MetatileBehavior_IsSemiDeepWater(MapGridGetMetatileBehaviorAt(x, y)) != TRUE
-     && PartyHasMonWithSurf() == TRUE
+     && FlagGet(FLAG_BADGE05_GET) && FlagGet(FLAG_GOT_HM03)
      && IsPlayerFacingSurfableFishableWater() == TRUE)
     {
         gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;
@@ -4118,7 +4116,7 @@ static void DisplayCantUseSurfMessage(void)
     }
 }
 
-static bool8 SetUpFieldMove_Fly(void)
+bool8 SetUpFieldMove_Fly(void)
 {
     if (Overworld_MapTypeAllowsTeleportAndFly(gMapHeader.mapType) == TRUE)
         return TRUE;

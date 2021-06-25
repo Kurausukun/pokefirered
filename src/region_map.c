@@ -12,6 +12,7 @@
 #include "menu.h"
 #include "strings.h"
 #include "map_preview_screen.h"
+#include "item_menu.h"
 #include "constants/songs.h"
 #include "constants/region_map_sections.h"
 #include "constants/heal_locations.h"
@@ -4457,7 +4458,10 @@ static void FreeFlyMap(u8 taskId)
     if (sFlyMap->selectedDestination == TRUE)
         SetMainCallback2(CB2_ReturnToField);
     else
-        SetMainCallback2(CB2_ReturnToPartyMenuFromFlyMap);
+        if (FlagGet(FLAG_BAG_FLY))
+            SetMainCallback2(CB2_BagMenuFromStartMenu);
+        else
+            SetMainCallback2(CB2_ReturnToPartyMenuFromFlyMap);
     FREE_IF_NOT_NULL(sFlyMap);
 }
 

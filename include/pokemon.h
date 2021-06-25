@@ -4,6 +4,7 @@
 #include "global.h"
 #include "sprite.h"
 #include "constants/pokemon.h"
+#include "constants/species.h"
 #include "pokemon_storage_system.h"
 
 struct PokemonSubstruct0
@@ -312,6 +313,7 @@ struct Evolution
 };
 
 #define EVOS_PER_MON 5
+#define EVOS_PER_LINE 6
 
 extern u8 gPlayerPartyCount;
 extern struct Pokemon gPlayerParty[PARTY_SIZE];
@@ -328,6 +330,7 @@ extern const u8 gFacilityClassToPicIndex[];
 extern const u8 gFacilityClassToTrainerClass[];
 extern const struct SpriteTemplate gSpriteTemplates_Battlers[];
 extern const u8 gPPUpGetMask[];
+extern const u16 gEvolutionLines[NUM_SPECIES][EVOS_PER_LINE];
 
 void ZeroBoxMonData(struct BoxPokemon *boxMon);
 void ZeroMonData(struct Pokemon *mon);
@@ -455,5 +458,8 @@ bool8 CheckBattleTypeGhost(struct Pokemon *mon, u8 bank);
 struct OakSpeechNidoranFStruct *OakSpeechNidoranFSetup(u8 battlePosition, bool8 enable);
 void OakSpeechNidoranFFreeResources(void);
 void *OakSpeechNidoranFGetBuffer(u8 bufferId);
+void DeletePartyMon(u8 position);
+void DeleteFaintedPartyMons(void);
+void CalculateMonStatsPomegSafety(struct Pokemon *mon);
 
 #endif // GUARD_POKEMON_H

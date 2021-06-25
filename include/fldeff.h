@@ -17,6 +17,7 @@ u8 MapTransitionIsExit(u8 lightLevel, u8 mapType);
 u8 MapTransitionIsEnter(u8 mapType1, u8 mapType2);
 bool8 SetUpFieldMove_Flash(void);
 void CB2_DoChangeMap(void);
+void FldEff_UseFlash(void);
 
 // cut
 bool8 SetUpFieldMove_Cut(void);
@@ -52,5 +53,8 @@ void Task_TryUseSoftboiledOnPartyMon(u8 taskId);
 // sweetscent
 bool8 SetUpFieldMove_SweetScent(void);
 bool8 FldEff_SweetScent(void);
+
+// fly
+u8 FldEff_UseFly(void);
 
 #endif // GUARD_FLDEFF_H

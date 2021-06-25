@@ -6057,6 +6057,38 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0
+    },
+    {
+      "english": "FLASH",
+      "itemId": "ITEM_FLASH",
+      "price": 0,
+      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffectParam": 0,
+      "description_english": "An item that lets\\nyou illuminate\\ndark caves.",
+      "importance": 1,
+      "exitsBagOnUse": 1,
+      "pocket": "POCKET_KEY_ITEMS",
+      "type": 4,
+      "fieldUseFunc": "FieldUseFunc_Flash",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
+      "secondaryId": 0
+    },
+    {
+      "english": "FLY",
+      "itemId": "ITEM_FLY",
+      "price": 0,
+      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffectParam": 0,
+      "description_english": "An item that lets\\nyou FLY to any\\ntown you've visited.",
+      "importance": 1,
+      "exitsBagOnUse": 1,
+      "pocket": "POCKET_KEY_ITEMS",
+      "type": 4,
+      "fieldUseFunc": "FieldUseFunc_Fly",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
+      "secondaryId": 0
     }
   ]
 }

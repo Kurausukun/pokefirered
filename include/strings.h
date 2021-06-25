@@ -1548,4 +1548,12 @@ extern const u8 gText_PokeSum_EggOrigin_NicePlace[];
 extern const u8 gText_PokeSum_EggOrigin_Spa[];
 extern const u8 gText_PokeSum_EggOrigin_Trade[];
 
+extern const u8 gText_UseFlashItem[];
+extern const u8 gText_BootedUpFlashItem[];
+extern const u8 gText_UseFlyItem[];
+extern const u8 gText_BootedUpFlyItem[];
+
+extern const u8 gText_CantThrowPokeballNuzlocke[];
+extern const u8 gText_CantThrowPokeballSpeciesClause[];
+
 #endif //GUARD_STRINGS_H

@@ -887,7 +887,9 @@ const u8 *const gBattleStringsTable[] = {
     [STRINGID_TRAINER1MON1COMEBACK - 12]          = sText_Trainer1RecallPkmn1,
     [STRINGID_TRAINER1WINTEXT - 12]               = sText_Trainer1WinText,
     [STRINGID_TRAINER1MON2COMEBACK - 12]          = sText_Trainer1RecallPkmn2,
-    [STRINGID_TRAINER1MON1AND2COMEBACK - 12]      = sText_Trainer1RecallBoth
+    [STRINGID_TRAINER1MON1AND2COMEBACK - 12]      = sText_Trainer1RecallBoth,
+    [STRINGID_NUZLOCKEENCOUNTERUSED - 12]         = gText_CantThrowPokeballNuzlocke,
+    [STRINGID_SPECIESCLAUSE - 12]                 = gText_CantThrowPokeballSpeciesClause,
 };
 
 const u16 gMissStringIds[] = {

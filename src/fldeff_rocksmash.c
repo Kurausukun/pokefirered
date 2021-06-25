@@ -55,12 +55,10 @@ static void Task_FieldEffectShowMon_Init(u8 taskId)
         if (gMapHeader.mapType == MAP_TYPE_UNDERWATER)
         {
             // Leftover from RS, inhibits the player anim while underwater.
-            FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
             gTasks[taskId].func = Task_FieldEffectShowMon_WaitFldeff;
         }
         else
         {
-            StartPlayerAvatarSummonMonForFieldMoveAnim();
             ObjectEventSetHeldMovement(&gObjectEvents[mapObjId], MOVEMENT_ACTION_START_ANIM_IN_DIRECTION);
             gTasks[taskId].func = Task_FieldEffectShowMon_WaitPlayerAnim;
         }
@@ -71,7 +69,6 @@ static void Task_FieldEffectShowMon_WaitPlayerAnim(u8 taskId)
 {
     if (ObjectEventCheckHeldMovementStatus(&gObjectEvents[gPlayerAvatar.objectEventId]) == TRUE)
     {
-        FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
         gTasks[taskId].func = Task_FieldEffectShowMon_WaitFldeff;
     }
 }

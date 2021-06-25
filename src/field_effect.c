@@ -1584,7 +1584,6 @@ static bool8 waterfall_1_do_anim_probably(struct Task * task, struct ObjectEvent
     {
         ObjectEventClearHeldMovementIfFinished(playerObj);
         gFieldEffectArguments[0] = task->data[1];
-        FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
         task->data[0]++;
     }
     return FALSE;
@@ -1658,7 +1657,6 @@ static bool8 dive_2_unknown(struct Task * task)
 {
     ScriptContext2_Enable();
     gFieldEffectArguments[0] = task->data[15];
-    FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
     task->data[0]++;
     return FALSE;
 }
@@ -2919,7 +2917,6 @@ static void UseSurfEffect_2(struct Task * task)
     objectEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
     if (!ObjectEventIsMovementOverridden(objectEvent) || ObjectEventClearHeldMovementIfFinished(objectEvent))
     {
-        StartPlayerAvatarSummonMonForFieldMoveAnim();
         ObjectEventSetHeldMovement(objectEvent, MOVEMENT_ACTION_START_ANIM_IN_DIRECTION);
         task->data[0]++;
     }
@@ -2932,7 +2929,6 @@ static void UseSurfEffect_3(struct Task * task)
     if (ObjectEventCheckHeldMovementStatus(objectEvent))
     {
         gFieldEffectArguments[0] = task->data[15] | 0x80000000;
-        FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
         task->data[0]++;
     }
 }
@@ -3145,7 +3141,6 @@ static void UseFlyEffect_2(struct Task * task)
     {
         task->data[0]++;
         gFieldEffectArguments[0] = task->data[1];
-        FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
     }
 }
 

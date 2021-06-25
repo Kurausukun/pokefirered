@@ -2,11 +2,9 @@ EventScript_CutTree:: @ 81BDF13
 	goto_if_questlog EventScript_ReleaseEnd
 	lockall
 	goto_if_unset FLAG_BADGE02_GET, EventScript_CantCutTree
-	checkpartymove MOVE_CUT
-	compare VAR_RESULT, PARTY_SIZE
+	checkitem ITEM_HM01, 1
+	compare VAR_RESULT, 0
 	goto_if_eq EventScript_CantCutTree
-	setfieldeffectarg 0, VAR_RESULT
-	getpartymonname 0, VAR_RESULT
 	getmovename 1, MOVE_CUT
 	msgbox Text_CutTreeDown, MSGBOX_YESNO
 	compare VAR_RESULT, NO
@@ -52,7 +50,7 @@ Text_CutTreeDown:: @ 81BDF94
 	.string "Would you like to CUT it?$"
 
 Text_MonUsedMove:: @ 81BDFD7
-	.string "{STR_VAR_1} used {STR_VAR_2}!$"
+	.string "{PLAYER} used {STR_VAR_2}!$"
 
 Text_TreeCanBeCutDown:: @ 81BDFE3
 	.string "This tree looks like it can be CUT\n"
@@ -62,11 +60,9 @@ EventScript_RockSmash:: @ 81BE00C
 	goto_if_questlog EventScript_ReleaseEnd
 	lockall
 	goto_if_unset FLAG_BADGE06_GET, EventScript_CantSmashRock
-	checkpartymove MOVE_ROCK_SMASH
-	compare VAR_RESULT, PARTY_SIZE
+	checkitem ITEM_HM06, 1
+	compare VAR_RESULT, 0
 	goto_if_eq EventScript_CantSmashRock
-	setfieldeffectarg 0, VAR_RESULT
-	getpartymonname 0, VAR_RESULT
 	getmovename 1, MOVE_ROCK_SMASH
 	msgbox Text_UseRockSmash, MSGBOX_YESNO
 	compare VAR_RESULT, NO
@@ -126,10 +122,9 @@ EventScript_StrengthBoulder:: @ 81BE11D
 	lockall
 	goto_if_unset FLAG_BADGE04_GET, EventScript_CantMoveBoulder
 	goto_if_set FLAG_SYS_USE_STRENGTH, EventScript_AlreadyUsedStrength
-	checkpartymove MOVE_STRENGTH
-	compare VAR_RESULT, PARTY_SIZE
+	checkitem ITEM_HM04, 1
+	compare VAR_RESULT, 0
 	goto_if_eq EventScript_CantMoveBoulder
-	setfieldeffectarg 0, VAR_RESULT
 	msgbox Text_UseStrength, MSGBOX_YESNO
 	compare VAR_RESULT, NO
 	goto_if_eq EventScript_DontUseStrength
@@ -170,8 +165,8 @@ Text_UseStrength:: @ 81BE19A
 	.string "Would you like to use STRENGTH?$"
 
 Text_MonUsedStrengthCanMoveBoulders:: @ 81BE1FA
-	.string "{STR_VAR_1} used STRENGTH!\p"
-	.string "{STR_VAR_1}'s STRENGTH made it\n"
+	.string "{PLAYER} used STRENGTH!\p"
+	.string "{PLAYER}'s STRENGTH made it\n"
 	.string "possible to move boulders around!$"
 
 Text_MonMayPushBoulder:: @ 81BE244
@@ -185,11 +180,9 @@ Text_StrengthMadeMovingBouldersPossible:: @ 81BE284
 EventScript_Waterfall:: @ 81BE2B7
 	goto_if_questlog EventScript_ReleaseEnd
 	lockall
-	checkpartymove MOVE_WATERFALL
-	compare VAR_RESULT, PARTY_SIZE
+	checkitem ITEM_HM07, 1
+	compare VAR_RESULT, 0
 	goto_if_eq EventScript_WaterCrashingDown
-	getpartymonname 0, VAR_RESULT
-	setfieldeffectarg 0, VAR_RESULT
 	msgbox Text_UseWaterfall, MSGBOX_YESNO
 	compare VAR_RESULT, NO
 	goto_if_eq EventScript_EndWaterfall
@@ -214,16 +207,14 @@ Text_UseWaterfall:: @ 81BE33F
 	.string "Would you like to use WATERFALL?$"
 
 Text_MonUsedWaterfall:: @ 81BE378
-	.string "{STR_VAR_1} used WATERFALL.$"
+	.string "{PLAYER} used WATERFALL.$"
 
 @ Unused leftover from R/S
 EventScript_DeepWater:: @ 81BE38B
 	lockall
-	checkpartymove MOVE_DIVE
-	compare VAR_RESULT, PARTY_SIZE
+	checkitem ITEM_HM08, 1
+	compare VAR_RESULT, 0
 	goto_if_eq EventScript_MayGoUnderwater
-	getpartymonname 0, VAR_RESULT
-	setfieldeffectarg 0, VAR_RESULT
 	setfieldeffectarg 1, 1
 	msgbox Text_SeaIsDeepUseDive, MSGBOX_YESNO
 	compare VAR_RESULT, NO
@@ -242,11 +233,9 @@ EventScript_EndDive:
 
 EventScript_TrySurface:: @ 81BE3D4
 	lockall
-	checkpartymove MOVE_DIVE
-	compare VAR_RESULT, PARTY_SIZE
+	checkitem ITEM_HM08, 1
+	compare VAR_RESULT, 0
 	goto_if_eq EventScript_CantSurface
-	getpartymonname 0, VAR_RESULT
-	setfieldeffectarg 0, VAR_RESULT
 	setfieldeffectarg 1, 1
 	msgbox Text_LightFilteringUseDive, MSGBOX_YESNO
 	compare VAR_RESULT, NO
@@ -276,7 +265,7 @@ Text_SeaIsDeepUseDive:: @ 81BE469
 	.string "Would you like to use DIVE?$"
 
 Text_MonUsedDive:: @ 81BE49B
-	.string "{STR_VAR_1} used DIVE.$"
+	.string "{PLAYER} used DIVE.$"
 
 Text_MonMaySurface:: @ 81BE4A9
 	.string "Light is filtering down from above.\n"

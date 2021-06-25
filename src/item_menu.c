@@ -124,7 +124,6 @@ static void Task_ItemMenuAction_Give(u8 taskId);
 static void Task_PrintThereIsNoPokemon(u8 taskId);
 static void Task_ItemMenuAction_Cancel(u8 taskId);
 static void Task_PrintItemCantBeHeld(u8 taskId);
-static void Task_WaitAButtonAndCloseContextMenu(u8 taskId);
 static void Task_ItemMenuAction_BattleUse(u8 taskId);
 static void Task_ItemContext_FieldGive(u8 taskId);
 static void GoToTMCase_Give(void);
@@ -1639,7 +1638,7 @@ static void Task_PrintItemCantBeHeld(u8 taskId)
     DisplayItemMessageInBag(taskId, 2, gStringVar4, Task_WaitAButtonAndCloseContextMenu);
 }
 
-static void Task_WaitAButtonAndCloseContextMenu(u8 taskId)
+void Task_WaitAButtonAndCloseContextMenu(u8 taskId)
 {
     if (JOY_NEW(A_BUTTON))
     {
