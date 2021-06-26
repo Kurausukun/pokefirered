@@ -2,8 +2,7 @@
 
 SixIsland_PokemonCenter_1F_MapScripts:: @ 8171D6A
 	map_script MAP_SCRIPT_ON_TRANSITION, SixIsland_PokemonCenter_1F_OnTransition
-	map_script MAP_SCRIPT_ON_RESUME, CableClub_OnResume
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, SixIsland_PokemonCenter_1F_OnFrame
+		map_script MAP_SCRIPT_ON_FRAME_TABLE, SixIsland_PokemonCenter_1F_OnFrame
 	.byte 0
 
 SixIsland_PokemonCenter_1F_OnTransition:: @ 8171D7A
