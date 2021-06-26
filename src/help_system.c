@@ -53,7 +53,6 @@ struct HelpSystemState
 
 struct HelpSystemState gHelpSystemState;
 u16 gHelpContextIdBackup;
-bool8 gHelpSystemEnabled;
 
 static bool32 IsCurrentMapInArray(const u16 * mapIdxs);
 static void BuildMainTopicsListAndMoveToH00(struct HelpSystemListMenu * a0, struct ListMenuItem * a1);

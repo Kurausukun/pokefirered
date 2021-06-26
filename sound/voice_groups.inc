@@ -339,6 +339,7 @@ voicegroup005:: @ 848A55C
 voicegroup006:: @ 848AB80
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tuba_39, 255, 0, 255, 165 @ 848AB80
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tuba_51, 255, 0, 255, 165 @ 848AB8C
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tuba_51_short, 255, 0, 255, 165
 
 	.align 2
 voicegroup007:: @ 848AB98
