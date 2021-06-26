@@ -44,7 +44,7 @@
 #define NUM_STORYTELLER_TALES  4
 #define NUM_TRADER_ITEMS       4
 
-#define OPTIONS_BUTTON_MODE_HELP         0
+#define OPTIONS_MODE_HELP                0
 #define OPTIONS_BUTTON_MODE_LR           1
 #define OPTIONS_BUTTON_MODE_L_EQUALS_A   2
 
