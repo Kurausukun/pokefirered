@@ -439,7 +439,7 @@ u8 sub_80D9E54(u16 a1, const struct SaveBlockChunk *chunks)
         {
             u16 j;
             for (j = 0; j < chunks[id].size; j++)
-                chunks[id].data[j] = gFastSaveSection->data[j];
+                ((u8 *)chunks[id].data)[j] = gFastSaveSection->data[j];
         }
     }
 
@@ -610,7 +610,7 @@ u16 CalculateChecksum(void *data, u16 size)
         // checksum += *(u32 *)data++;
         // For compatibility with modern gcc, these statements were separated.
         checksum += *(u32 *)data;
-        data += 4;
+        data += sizeof(u32);
     }
 
     return ((checksum >> 16) + checksum);
