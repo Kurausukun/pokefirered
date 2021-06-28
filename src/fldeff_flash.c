@@ -174,8 +174,7 @@ bool8 SetUpFieldMove_Flash(void)
 
 static void FieldCallback_Flash(void)
 {
-    gTasks[taskId].data[8] = ((uintptr_t)FldEff_UseFlash) >> 16;
-    gTasks[taskId].data[9] = ((uintptr_t)FldEff_UseFlash);
+    FldEff_UseFlash();
 }
 
 void FldEff_UseFlash(void)
