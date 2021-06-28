@@ -23,7 +23,6 @@ static void FieldCallback_Teleport(void)
 {
     Overworld_ResetStateAfterTeleport();
     FieldEffectStart(FLDEFF_USE_TELEPORT);
-    gFieldEffectArguments[0] = (u32)GetCursorSelectionMonId();
 }
 
 bool8 FldEff_UseTeleport(void)
