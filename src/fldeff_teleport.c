@@ -27,8 +27,7 @@ static void FieldCallback_Teleport(void)
 
 bool8 FldEff_UseTeleport(void)
 {
-    u8 taskId = CreateFieldEffectShowMon();
-    FLDEFF_SET_FUNC_TO_DATA(StartTeleportFieldEffect);
+    StartTeleportFieldEffect();
     SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT);
     return FALSE;
 }

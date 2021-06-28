@@ -29,9 +29,7 @@ static void FieldCallback_Dig(void)
 
 bool8 FldEff_UseDig(void)
 {
-    u8 taskId = CreateFieldEffectShowMon();
-
-    FLDEFF_SET_FUNC_TO_DATA(sub_80C9AFC);
+    sub_80C9AFC();
     SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT);
     return FALSE;
 }

@@ -33,16 +33,12 @@ bool8 SetUpFieldMove_SweetScent(void)
 static void FieldCallback_SweetScent(void)
 {
     FieldEffectStart(FLDEFF_SWEET_SCENT);
-    gFieldEffectArguments[0] = GetCursorSelectionMonId();
 }
 
 bool8 FldEff_SweetScent(void)
 {
-    u8 taskId;
-
     SetWeatherScreenFadeOut();
-    taskId = CreateFieldEffectShowMon();
-    FLDEFF_SET_FUNC_TO_DATA(StartSweetScentFieldEffect);
+    StartSweetScentFieldEffect();
     return FALSE;
 }
 

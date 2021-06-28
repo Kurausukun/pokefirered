@@ -163,27 +163,23 @@ bool8 SetUpFieldMove_Cut(void)
 static void FieldCallback_CutGrass(void)
 {
     FieldEffectStart(FLDEFF_USE_CUT_ON_GRASS);
-    gFieldEffectArguments[0] = GetCursorSelectionMonId();
 }
 
 bool8 FldEff_UseCutOnGrass(void)
 {
-    u8 taskId = CreateFieldEffectShowMon();
-    FLDEFF_SET_FUNC_TO_DATA(FieldMoveCallback_CutGrass);
+    FieldMoveCallback_CutGrass();
     IncrementGameStat(GAME_STAT_USED_CUT);
     return FALSE;
 }
 
 static void FieldCallback_CutTree(void)
 {
-    gFieldEffectArguments[0] = GetCursorSelectionMonId();
     ScriptContext1_SetupScript(EventScript_FldEffCut);
 }
 
 bool8 FldEff_UseCutOnTree(void)
 {
-    u8 taskId = CreateFieldEffectShowMon();
-    FLDEFF_SET_FUNC_TO_DATA(FieldMoveCallback_CutTree);
+    FieldMoveCallback_CutTree();
     IncrementGameStat(GAME_STAT_USED_CUT);
     return FALSE;
 }
