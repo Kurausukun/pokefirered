@@ -113,15 +113,12 @@ bool8 SetUpFieldMove_RockSmash(void)
 
 static void sub_80C9A10(void)
 {
-    gFieldEffectArguments[0] = GetCursorSelectionMonId();
     ScriptContext1_SetupScript(EventScript_FldEffRockSmash);
 }
 
 bool8 FldEff_UseRockSmash(void)
 {
-    u8 taskId = CreateFieldEffectShowMon();
-
-    FLDEFF_SET_FUNC_TO_DATA(sub_80C9A60);
+    sub_80C9A60();
     IncrementGameStat(GAME_STAT_USED_ROCK_SMASH);
     return FALSE;
 }
