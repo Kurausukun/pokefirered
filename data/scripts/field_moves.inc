@@ -12,14 +12,12 @@ EventScript_CutTree:: @ 81BDF13
 	msgbox Text_MonUsedMove
 	closemessage
 	dofieldeffect FLDEFF_USE_CUT_ON_TREE
-	waitstate
 	goto EventScript_CutTreeDown
 	end
 
 EventScript_FldEffCut:: @ 81BDF6B
 	lockall
 	dofieldeffect FLDEFF_USE_CUT_ON_TREE
-	waitstate
 	goto EventScript_CutTreeDown
 	end
 
@@ -70,14 +68,12 @@ EventScript_RockSmash:: @ 81BE00C
 	msgbox Text_MonUsedMove
 	closemessage
 	dofieldeffect FLDEFF_USE_ROCK_SMASH
-	waitstate
 	goto EventScript_UseRockSmash
 	end
 
 EventScript_FldEffRockSmash:: @ 81BE064
 	lockall
 	dofieldeffect FLDEFF_USE_ROCK_SMASH
-	waitstate
 	goto EventScript_UseRockSmash
 	end
 
@@ -88,7 +84,6 @@ EventScript_UseRockSmash:: @ 81BE06F
 	special RockSmashWildEncounter
 	compare VAR_RESULT, FALSE
 	goto_if_eq EventScript_RockSmashNoEncounter
-	waitstate
 	releaseall
 	end
 
@@ -130,14 +125,12 @@ EventScript_StrengthBoulder:: @ 81BE11D
 	goto_if_eq EventScript_DontUseStrength
 	closemessage
 	dofieldeffect FLDEFF_USE_STRENGTH
-	waitstate
 	goto EventScript_UseStrength
 	end
 
 EventScript_FldEffStrength:: @ 81BE16E
 	lockall
 	dofieldeffect FLDEFF_USE_STRENGTH
-	waitstate
 	goto EventScript_UseStrength
 	end
 
