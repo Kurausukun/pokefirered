@@ -61,6 +61,8 @@
 	.align 3
 	.include "src/agb_flash.o"
 	.align 3
+	.include "src/rtc.o"
+	.align 3
 	.include "src/siirtc.o"
 	.align 3
 	.include "*libgcc.a:dp-bit.o"

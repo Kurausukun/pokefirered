@@ -74,6 +74,8 @@
 	.include "m4a.o"
 	.align 2
 	.include "agb_flash.o"
+	.align 4
+	.include "rtc.o"
 	.align 2
 	.include "librfu_stwi.o"
 	.align 4
