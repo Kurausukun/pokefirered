@@ -717,6 +717,7 @@ void CB2_StartWallClock(void)
 
     WallClockInit();
 
+    FillWindowPixelBuffer(1, 0);
     AddTextPrinterParameterized(1, 1, gText_Confirm3, 0, 1, 0, NULL);
     PutWindowTilemap(1);
     ScheduleBgCopyTilemapToVram(2);
