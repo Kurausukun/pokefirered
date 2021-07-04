@@ -472,18 +472,14 @@ static void Task_ExecuteMainMenuSelection(u8 taskId)
             gUnknown_2031DE0 = 0;
             FreeAllWindowBuffers();
             DestroyTask(taskId);
-            StartNewGameScene();
+            StartWallClock();
             break;
         case MAIN_MENU_CONTINUE:
             gPlttBufferUnfaded[0] = RGB_BLACK;
             gPlttBufferFaded[0] = RGB_BLACK;
             gUnknown_2031DE0 = 0;
             FreeAllWindowBuffers();
-            if (!FlagGet(FLAG_SYS_CLOCK_SET))
-                StartWallClock();
-            else
-                TrySetUpQuestLogScenes_ElseContinueFromSave();
-            DestroyTask(taskId);
+            TrySetUpQuestLogScenes_ElseContinueFromSave(taskId);
             break;
         case MAIN_MENU_MYSTERYGIFT:
             SetMainCallback2(c2_mystery_gift);

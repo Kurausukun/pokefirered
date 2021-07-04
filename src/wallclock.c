@@ -69,6 +69,7 @@ enum
 
 static const u32 sHand_Gfx[] = INCBIN_U32("graphics/wallclock/hand.4bpp.lz");
 static const u16 sTextPrompt_Pal[] = INCBIN_U16("graphics/wallclock/text_prompt.gbapal"); // for "Cancel" or "Confirm"
+static const u16 sUnknown_8470B0C_pal[] = INCBIN_U16("graphics/text_window/unk_8470B0C.gbapal");
 
 static const struct WindowTemplate sWindowTemplates[] =
 {
@@ -647,7 +648,7 @@ static void LoadWallClockGraphics(void)
     else
         LoadPalette(gWallClockFemale_Pal, 0, 32);
 
-    LoadPalette(gUnknown_8470B0C, 0xe0, 32);
+    LoadPalette(sUnknown_8470B0C_pal, 0xe0, 32);
     LoadPalette(sTextPrompt_Pal, 0xc0, 8);
     ResetBgsAndClearDma3BusyFlags(0);
     InitBgsFromTemplates(0, sBgTemplates, NELEMS(sBgTemplates));

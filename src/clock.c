@@ -7,20 +7,19 @@
 #include "main.h"
 #include "overworld.h"
 #include "wallclock.h"
-#include "quest_log.h"
+#include "oak_speech.h"
 
 static void UpdatePerDay(struct Time *localTime);
 
 static void InitTimeBasedEvents(void)
 {
-    FlagSet(FLAG_SYS_CLOCK_SET);
     RtcCalcLocalTime();
     VarSet(VAR_DAYS, gLocalTime.days);
 }
 
 void DoTimeBasedEvents(void)
 {
-    if (FlagGet(FLAG_SYS_CLOCK_SET) && !InPokemonCenter())
+    if (!InPokemonCenter())
     {
         RtcCalcLocalTime();
         UpdatePerDay(&gLocalTime);
@@ -42,7 +41,7 @@ static void UpdatePerDay(struct Time *localTime)
 static void ReturnFromStartWallClock(void)
 {
     InitTimeBasedEvents();
-    TrySetUpQuestLogScenes_ElseContinueFromSave();
+    StartNewGameScene();
 }
 
 void StartWallClock(void)
