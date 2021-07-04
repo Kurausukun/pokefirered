@@ -2045,6 +2045,18 @@ bool8 UsedPokemonCenterWarp(void)
     return FALSE;
 }
 
+bool8 InPokemonCenter(void)
+{
+    s32 i;
+    u16 mapno = (gSaveBlock1Ptr->location.mapGroup << 8) + gSaveBlock1Ptr->location.mapNum;
+    for (i = 0; sPokeCenter1FMaps[i] != MAP_UNDEFINED; i++)
+    {
+        if (sPokeCenter1FMaps[i] == mapno)
+            return TRUE;
+    }
+    return FALSE;
+}
+
 bool8 BufferTMHMMoveName(void)
 {
     // 8004 = item ID

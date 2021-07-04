@@ -4901,6 +4901,13 @@ extern const u32 gEasyChatRedRectangularCursor_Tiles[];
 extern const u32 gEasyChatSelectGroupHelp_Tiles[];
 extern const u32 gEasyChatModeIcons_Tiles[];
 
+// wallclock
+extern const u16 gWallClockMale_Pal[];
+extern const u16 gWallClockFemale_Pal[];
+extern const u32 gWallClock_Gfx[];
+extern const u32 gWallClockStart_Tilemap[];
+extern const u32 gWallClockView_Tilemap[];
+
 // naming_screen
 extern const u32 gUnknown_8E982BC[];
 extern const u32 gUnknown_8E98458[];

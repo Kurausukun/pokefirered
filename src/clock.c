@@ -23,7 +23,6 @@ void DoTimeBasedEvents(void)
     {
         RtcCalcLocalTime();
         UpdatePerDay(&gLocalTime);
-        UpdatePerMinute(&gLocalTime);
     }
 }
 
