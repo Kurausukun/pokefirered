@@ -1381,7 +1381,7 @@
 #define FLAG_0x832                                                  (SYS_FLAGS + 0x32)
 #define FLAG_0x833                                                  (SYS_FLAGS + 0x33)
 #define FLAG_SYS_NOT_SOMEONES_PC                                    (SYS_FLAGS + 0x34)
-#define FLAG_0x835                                                  (SYS_FLAGS + 0x35)
+#define FLAG_SYS_CLOCK_SET                                          (SYS_FLAGS + 0x35)
 #define FLAG_0x836                                                  (SYS_FLAGS + 0x36)
 #define FLAG_0x837                                                  (SYS_FLAGS + 0x37)
 #define FLAG_0x838                                                  (SYS_FLAGS + 0x38)
