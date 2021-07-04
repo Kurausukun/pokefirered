@@ -162,7 +162,7 @@ gSpecials:: @ 815FD60
 	def_special NullFieldSpecial  @ Cable Car specials
 	def_special NullFieldSpecial
 	def_special Overworld_PlaySpecialMapMusic
-	def_special NullFieldSpecial  @ Wall Clock specials
+	def_special StartWallClock  @ Wall Clock specials
 	def_special NullFieldSpecial
 	def_special NullFieldSpecial
 	def_special StartOldManTutorialBattle
