@@ -16,6 +16,7 @@
 #include "pokedex.h"
 #include "text_window.h"
 #include "text_window_graphics.h"
+#include "clock.h"
 #include "constants/songs.h"
 
 enum MainMenuType
@@ -478,7 +479,11 @@ static void Task_ExecuteMainMenuSelection(u8 taskId)
             gPlttBufferFaded[0] = RGB_BLACK;
             gUnknown_2031DE0 = 0;
             FreeAllWindowBuffers();
-            TrySetUpQuestLogScenes_ElseContinueFromSave(taskId);
+            if (!FlagGet(FLAG_SYS_CLOCK_SET))
+                StartWallClock();
+            else
+                TrySetUpQuestLogScenes_ElseContinueFromSave();
+            DestroyTask(taskId);
             break;
         case MAIN_MENU_MYSTERYGIFT:
             SetMainCallback2(c2_mystery_gift);

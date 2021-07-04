@@ -7,6 +7,7 @@
 #include "main.h"
 #include "overworld.h"
 #include "wallclock.h"
+#include "quest_log.h"
 
 static void UpdatePerDay(struct Time *localTime);
 
@@ -41,7 +42,7 @@ static void UpdatePerDay(struct Time *localTime)
 static void ReturnFromStartWallClock(void)
 {
     InitTimeBasedEvents();
-    SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
+    TrySetUpQuestLogScenes_ElseContinueFromSave();
 }
 
 void StartWallClock(void)

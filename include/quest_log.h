@@ -48,7 +48,7 @@ void CommitQuestLogWindow1(void);
 void QuestLog_DrawPreviouslyOnQuestHeaderIfInPlaybackMode(void);
 void ResetQuestLog(void);
 void ResetTrainerFanClub(void);
-void TrySetUpQuestLogScenes_ElseContinueFromSave(u8 taskId);
+void TrySetUpQuestLogScenes_ElseContinueFromSave(void);
 void SaveQuestLogData(void);
 void QuestLog_CutRecording(void);
 u8 sub_8112CAC(void);

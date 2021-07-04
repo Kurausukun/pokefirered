@@ -95,7 +95,7 @@ static void BackUpTrainerRematchesToVars(void);
 static void BackUpMapLayoutToVar(void);
 static void SetGameStateAtScene(u8);
 static u8 TryRecordQuestLogEntrySequence(struct QuestLogEntry *);
-static void Task_BeginQuestLogPlayback(u8);
+static void Task_BeginQuestLogPlayback(void);
 static void QuestLogPlaybackSetObjectEventTemplates(u8);
 static void QLPlayback_InitOverworldState(void);
 static void QuestLog_GetSaneMonCounts(void);
@@ -416,7 +416,7 @@ static bool8 TryRecordQuestLogEntrySequence(struct QuestLogEntry * entry)
     return TRUE;
 }
 
-void TrySetUpQuestLogScenes_ElseContinueFromSave(u8 taskId)
+void TrySetUpQuestLogScenes_ElseContinueFromSave(void)
 {
     u8 i;
 
@@ -429,19 +429,12 @@ void TrySetUpQuestLogScenes_ElseContinueFromSave(u8 taskId)
     }
 
     if (sNumScenes != 0)
-    {
         gHelpSystemEnabled = FALSE;
-        Task_BeginQuestLogPlayback(taskId);
-        DestroyTask(taskId);
-    }
     else
-    {
         SetMainCallback2(CB2_ContinueSavedGame);
-        DestroyTask(taskId);
-    }
 }
 
-static void Task_BeginQuestLogPlayback(u8 taskId)
+static void Task_BeginQuestLogPlayback(void)
 {
     gSaveBlock1Ptr->location.mapGroup = MAP_GROUP(ROUTE1);
     gSaveBlock1Ptr->location.mapNum =  MAP_NUM(ROUTE1);
