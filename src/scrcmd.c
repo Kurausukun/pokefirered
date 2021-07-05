@@ -672,7 +672,7 @@ bool8 ScrCmd_dodailyevents(struct ScriptContext * ctx)
     return FALSE;
 }
 
-bool8 ScrCmd_gettime(struct ScriptContext *ctx)
+bool8 ScrCmd_gettime(struct ScriptContext * ctx)
 {
     RtcCalcLocalTime();
     gSpecialVar_0x8000 = gLocalTime.hours;
