@@ -1,6 +1,7 @@
 #include "global.h"
 #include "gflib.h"
 #include "bike.h"
+#include "clock.h"
 #include "event_data.h"
 #include "field_camera.h"
 #include "field_effect_helpers.h"
@@ -47,6 +48,26 @@ static const u8 sIcefallCaveIceTileCoords[][2] =
     {  8, 14 }
 };
 
+static void RunTimeBasedEvents(s16 *data)
+{
+    switch (data[0])
+    {
+        case 0:
+            if (*gMain.vblankCounter1 & 0x1000)
+            {
+                DoTimeBasedEvents();
+                data[0]++;
+            }
+            break;
+        case 1:
+            if (!(*gMain.vblankCounter1 & 0x1000))
+            {
+                data[0]--;
+            }
+            break;
+    }
+}
+
 static void Task_RunPerStepCallback(u8 taskId)
 {
     int idx = gTasks[taskId].data[0];
@@ -61,6 +82,7 @@ static void Task_RunTimeBasedEvents(u8 taskId)
     {
         if (!QL_IS_PLAYBACK_STATE)
         {
+            RunTimeBasedEvents(data);
             UpdateAmbientCry(&data[1], &data[2]);
         }
     }
