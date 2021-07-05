@@ -630,6 +630,7 @@ static void LoadWallClockGraphics(void)
     SetGpuReg(REG_OFFSET_BG2CNT, 0);
     SetGpuReg(REG_OFFSET_BG1CNT, 0);
     SetGpuReg(REG_OFFSET_BG0CNT, 0);
+    SetGpuReg(REG_OFFSET_BG2VOFS, 0);
     ChangeBgX(0, 0, 0);
     ChangeBgY(0, 0, 0);
     ChangeBgX(1, 0, 0);
@@ -717,7 +718,6 @@ void CB2_StartWallClock(void)
 
     WallClockInit();
 
-    FillWindowPixelBuffer(1, 0);
     AddTextPrinterParameterized(1, 1, gText_Confirm3, 0, 1, 0, NULL);
     PutWindowTilemap(1);
     ScheduleBgCopyTilemapToVram(2);
