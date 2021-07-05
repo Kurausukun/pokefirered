@@ -15,6 +15,7 @@
 #include "overworld.h"
 #include "random.h"
 #include "data.h"
+#include "clock.h"
 #include "constants/songs.h"
 
 struct OakSpeechResources
@@ -1523,7 +1524,7 @@ static void Task_OakSpeech42(u8 taskId)
     Free(sOakSpeechResources);
     sOakSpeechResources = NULL;
     gTextFlags.canABSpeedUpPrint = FALSE;
-    SetMainCallback2(CB2_NewGame);
+    StartWallClock();
     DestroyTask(taskId);
 }
 

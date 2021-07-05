@@ -643,7 +643,7 @@ static void LoadWallClockGraphics(void)
     DmaClear16(3, (void *)PLTT, PLTT_SIZE);
     LZ77UnCompVram(gWallClock_Gfx, (void *)VRAM);
 
-    if (gSpecialVar_0x8004 == MALE)
+    if (gSaveBlock2Ptr->playerGender == MALE)
         LoadPalette(gWallClockMale_Pal, 0, 32);
     else
         LoadPalette(gWallClockFemale_Pal, 0, 32);

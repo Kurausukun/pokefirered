@@ -472,7 +472,7 @@ static void Task_ExecuteMainMenuSelection(u8 taskId)
             gUnknown_2031DE0 = 0;
             FreeAllWindowBuffers();
             DestroyTask(taskId);
-            StartWallClock();
+            StartNewGameScene();
             break;
         case MAIN_MENU_CONTINUE:
             gPlttBufferUnfaded[0] = RGB_BLACK;

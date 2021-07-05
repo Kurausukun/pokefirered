@@ -7,7 +7,6 @@
 #include "main.h"
 #include "overworld.h"
 #include "wallclock.h"
-#include "oak_speech.h"
 
 static void UpdatePerDay(struct Time *localTime);
 
@@ -41,7 +40,7 @@ static void UpdatePerDay(struct Time *localTime)
 static void ReturnFromStartWallClock(void)
 {
     InitTimeBasedEvents();
-    StartNewGameScene();
+    SetMainCallback2(CB2_NewGame);
 }
 
 void StartWallClock(void)
