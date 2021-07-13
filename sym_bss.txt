@@ -29,11 +29,8 @@
 	.include "src/digit_obj_util.o"
 	.include "src/m4a_1.o"
 	.include "src/agb_flash.o"
-	.align 3
 	.include "src/rtc.o"
-	.align 3
 	.include "src/siirtc.o"
-	.align 3
 	.include "*libgcc.a:dp-bit.o"
 	.include "*libgcc.a:fp-bit.o"
 	.include "*libc.a:syscalls.o"
