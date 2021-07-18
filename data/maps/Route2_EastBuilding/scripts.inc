@@ -22,7 +22,7 @@ Route2_EastBuilding_EventScript_Aide:: @ 816F67F
 	compare VAR_RESULT, FALSE
 	goto_if_eq Aide_EventScript_NoRoomForItem
 	giveitem_msg Route2_EastBuilding_Text_ReceivedHM05FromAide, ITEM_HM05
-	giveitem ITEM_FLASH
+	additem ITEM_FLASH
 	setflag FLAG_GOT_HM05
 	msgbox Route2_EastBuilding_Text_ExplainHM05
 	release

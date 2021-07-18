@@ -1,6 +1,7 @@
 #include "global.h"
 #include "event_data.h"
 #include "item_menu.h"
+#include "constants/items.h"
 #include "constants/region_map_sections.h"
 #include "quest_log.h"
 
@@ -334,6 +335,20 @@ void GlobalNuzlockeSet(void)
 void GlobalNuzlockeClear(void)
 {
     FlagClear(FLAG_NUZLOCKE_GLOBAL);
+}
+
+void GiveEventTickets(void)
+{
+    if (!(CheckBagHasItem(ITEM_AURORA_TICKET, 1) && FlagGet(FLAG_FOUGHT_DEOXYS)) && AddBagItem(ITEM_AURORA_TICKET, 1))
+    {
+        FlagSet(FLAG_ENABLE_SHIP_BIRTH_ISLAND);
+        FlagSet(FLAG_GOT_AURORA_TICKET);
+    }
+    if (!(CheckBagHasItem(ITEM_MYSTIC_TICKET, 1) && (FlagGet(FLAG_FOUGHT_LUGIA) || FlagGet(FLAG_FOUGHT_HO_OH))) && AddBagItem(ITEM_MYSTIC_TICKET, 1))
+    {
+        FlagSet(FLAG_ENABLE_SHIP_NAVEL_ROCK);
+        FlagSet(FLAG_GOT_MYSTIC_TICKET);
+    }
 }
 
 void ResetSpecialVars(void)

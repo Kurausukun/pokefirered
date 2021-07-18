@@ -159,10 +159,15 @@ PokemonLeague_ChampionsRoom_EventScript_RematchCharmander:: @ 8162CFC
 
 PokemonLeague_ChampionsRoom_EventScript_ClearNuzlockeIfSet::
 	call_if_set FLAG_NUZLOCKE_GLOBAL PokemonLeague_ChampionsRoom_EventScript_ClearNuzlocke
+	call PokemonLeague_ChampionsRoom_EventScript_GiveTickets
 	return
 	
 PokemonLeague_ChampionsRoom_EventScript_ClearNuzlocke::
 	callnative GlobalNuzlockeClear
+	return
+
+PokemonLeague_ChampionsRoom_EventScript_GiveTickets::
+	callnative GiveEventTickets
 	return
 
 PokemonLeague_ChampionsRoom_Movement_PlayerEnter:: @ 8162D07
