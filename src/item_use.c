@@ -745,22 +745,19 @@ void Task_ItemUse_CloseMessageBoxAndReturnToField_VsSeeker(u8 taskId)
 
 void BattleUseFunc_PokeBallEtc(u8 taskId)
 {
-    if (!IsPlayerPartyAndPokemonStorageFull())
+    if (gIsCaptureBlockedByNuzlocke)
     {
-        if (!gIsCaptureBlockedByNuzlocke)
-        {
-            RemoveBagItem(gSpecialVar_ItemId, 1);
-            Bag_BeginCloseWin0Animation();
-            ItemMenu_StartFadeToExitCallback(taskId);
-        }
-        else if (gIsSpeciesClauseActive)
-        {
-            DisplayItemMessageInCurrentContext(taskId, FALSE, 4, gText_CantThrowPokeballSpeciesClause);
-        }
-        else
-        {
-            DisplayItemMessageInCurrentContext(taskId, FALSE, 4, gText_CantThrowPokeballNuzlocke);
-        }
+        DisplayItemMessageInCurrentContext(taskId, FALSE, 4, gText_CantThrowPokeballNuzlocke);
+    }
+    else if (gIsSpeciesClauseActive)
+    {
+        DisplayItemMessageInCurrentContext(taskId, FALSE, 4, gText_CantThrowPokeballSpeciesClause);
+    }
+    else if (!IsPlayerPartyAndPokemonStorageFull())
+    {
+        RemoveBagItem(gSpecialVar_ItemId, 1);
+        Bag_BeginCloseWin0Animation();
+        ItemMenu_StartFadeToExitCallback(taskId);
     }
     else
     {
