@@ -123,7 +123,6 @@ EventScript_StrengthBoulder:: @ 81BE11D
 	msgbox Text_UseStrength, MSGBOX_YESNO
 	compare VAR_RESULT, NO
 	goto_if_eq EventScript_DontUseStrength
-	closemessage
 	dofieldeffect FLDEFF_USE_STRENGTH
 	goto EventScript_UseStrength
 	end
