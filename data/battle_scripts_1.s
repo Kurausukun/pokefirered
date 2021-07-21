@@ -1153,7 +1153,6 @@ BattleScript_EffectMimic::
 BattleScript_EffectMetronome::
 	attackcanceler
 	attackstring
-	pause 0x20
 	attackanimation
 	waitanimation
 	setbyte sB_ANIM_TURN, 0
@@ -1162,7 +1161,6 @@ BattleScript_EffectMetronome::
 BattleScript_EffectLeechSeed::
 	attackcanceler
 	attackstring
-	pause 0x20
 	ppreduce
 	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_ButItFailed
 	accuracycheck BattleScript_DoLeechSeed, ACC_CURR_MOVE
