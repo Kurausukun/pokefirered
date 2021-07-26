@@ -1080,9 +1080,11 @@ static const u8 *GetTrainerCantBattleSpeech(void)
 static bool8 IsCaptureBlockedBySpeciesClause(u16 species)
 {
     int i;
+    if (GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_GET_CAUGHT))
+        return TRUE;
     for (i = 0; i < EVOS_PER_LINE; i++)
     {
-        if (GetSetPokedexFlag(SpeciesToNationalPokedexNum(gEvolutionLines[species][i]), FLAG_GET_CAUGHT))
+        if (gEvolutionLines[species][i] != SPECIES_NONE && GetSetPokedexFlag(SpeciesToNationalPokedexNum(gEvolutionLines[species][i]), FLAG_GET_CAUGHT))
             return TRUE;
     }
     return FALSE;
