@@ -1937,7 +1937,7 @@ static const u16 *BufferQuestLogText_UsedFieldMove(const u16 *eventData)
 {
     const u16 *r4 = sub_8113E88(QL_EVENT_USED_FIELD_MOVE, eventData);
     const u8 *r5 = (const u8 *)r4 + 2;
-    QuestLog_GetSpeciesName(r4[0], gStringVar1, 0);
+    //QuestLog_GetSpeciesName(r4[0], gStringVar1, 0);
     if (r5[1] != 0xFF)
         GetMapNameGeneric(gStringVar2, r5[1]);
 
