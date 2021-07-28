@@ -17,6 +17,7 @@
 #include "constants/region_map_sections.h"
 #include "constants/heal_locations.h"
 #include "constants/maps.h"
+#include "constants/flags.h"
 
 #define MAP_WIDTH 22
 #define MAP_HEIGHT 15
@@ -4456,12 +4457,24 @@ static void FreeFlyMap(u8 taskId)
     DestroyTask(taskId);
     FreeAllWindowBuffers();
     if (sFlyMap->selectedDestination == TRUE)
+    {
         SetMainCallback2(CB2_ReturnToField);
+    }
     else
+    {
         if (FlagGet(FLAG_BAG_FLY))
-            SetMainCallback2(CB2_BagMenuFromStartMenu);
+        {
+            if (!gBagMenuState.usingFlyViaSelect)
+                SetMainCallback2(CB2_BagMenuFromStartMenu);
+            else
+                SetMainCallback2(CB2_ReturnToField);
+        }
         else
+        {
             SetMainCallback2(CB2_ReturnToPartyMenuFromFlyMap);
+        }
+    }
+    FlagClear(FLAG_BAG_FLY);
     FREE_IF_NOT_NULL(sFlyMap);
 }
 

@@ -13,7 +13,8 @@ struct BagStruct
 {
     MainCallback bagCallback;
     u8 location;
-    bool8 bagOpen;
+    bool8 bagOpen:7;
+    bool8 usingFlyViaSelect:1;
     u16 pocket;
     u16 itemsAbove[3];
     u16 cursorPos[3];

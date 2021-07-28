@@ -77,6 +77,7 @@ static void DoFlashItem(u8 taskId, TaskFunc task);
 static void UseFlyItem(u8 taskId);
 static void SetUpFlyUseCallback(u8 taskId);
 static void DoFlyItem(u8 taskId, TaskFunc task);
+static void Task_FlyItemWaitForFade(u8 taskId);
 
 // No clue what this is
 static const u8 sUnref_83E27B4[] = {
@@ -1016,11 +1017,30 @@ static void UseFlyItem(u8 taskId)
 
 static void SetUpFlyUseCallback(u8 taskId)
 {
-    gBagMenuState.bagCallback = CB2_OpenFlyMap;
-    ItemMenu_StartFadeToExitCallback(taskId);
+    if (!gTasks[taskId].data[3])
+    {
+        gBagMenuState.usingFlyViaSelect = FALSE;
+        gBagMenuState.bagCallback = CB2_OpenFlyMap;
+        ItemMenu_StartFadeToExitCallback(taskId);
+    }
+    else
+    {
+        gBagMenuState.usingFlyViaSelect = TRUE;
+        BeginNormalPaletteFade(0xFFFFFFFF, -2, 0, 16, RGB_BLACK);
+        gTasks[taskId].func = Task_FlyItemWaitForFade;
+    }
 }
 
 static void DoFlyItem(u8 taskId, TaskFunc task)
 {
     FldEff_UseFly();
+}
+
+static void Task_FlyItemWaitForFade(u8 taskId)
+{
+    if (!gPaletteFade.active)
+    {
+        DestroyTask(taskId);
+        SetMainCallback2(CB2_OpenFlyMap);
+    }
 }
