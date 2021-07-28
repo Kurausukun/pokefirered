@@ -962,23 +962,42 @@ void FieldUseFunc_Flash(u8 taskId)
     }
     else
     {
-        if (SetUpFieldMove_Flash())
-            UseFlashItem(taskId);
+        if (!gTasks[taskId].data[3])
+        {
+            if (SetUpFieldMove_Flash())
+                UseFlashItem(taskId);
+            else
+                PrintNotTheTimeToUseThat(taskId, gTasks[taskId].data[3]);
+        }
         else
-            PrintNotTheTimeToUseThat(taskId, gTasks[taskId].data[3]);
+        {
+            if (SetUpFieldItem_Flash())
+                UseFlashItem(taskId);
+            else
+                PrintNotTheTimeToUseThat(taskId, gTasks[taskId].data[3]);
+        }
     }
 }
 
 static void UseFlashItem(u8 taskId)
 {
-    gItemUseCB = DoFlashItem;
+    if (!gTasks[taskId].data[3])
+        gItemUseCB = DoFlashItem;
     SetUpFlashUseCallback(taskId);
 }
 
 static void SetUpFlashUseCallback(u8 taskId)
 {
-    gBagMenuState.bagCallback = CB2_ReturnToField;
-    ItemMenu_StartFadeToExitCallback(taskId);
+    if (!gTasks[taskId].data[3])
+    {
+        gBagMenuState.bagCallback = CB2_ReturnToField;
+        ItemMenu_StartFadeToExitCallback(taskId);
+    }
+    else
+    {
+        DestroyTask(taskId);
+        FldEff_UseFlash();
+    }
 }
 
 static void DoFlashItem(u8 taskId, TaskFunc task)

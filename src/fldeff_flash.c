@@ -172,6 +172,17 @@ bool8 SetUpFieldMove_Flash(void)
     return TRUE;
 }
 
+bool8 SetUpFieldItem_Flash(void)
+{
+    if (gMapHeader.cave != TRUE)
+        return FALSE;
+
+    if (FlagGet(FLAG_SYS_FLASH_ACTIVE))
+        return FALSE;
+    
+    return TRUE;
+}
+
 static void FieldCallback_Flash(void)
 {
     FldEff_UseFlash();
