@@ -1393,6 +1393,17 @@ extern const u8 gText_BoxName[];
 extern const u8 gText_PkmnsNickname[];
 extern const u8 gText_RivalsName[];
 
+// rtc reset screen
+extern const u8 gText_ResetRTCConfirmCancel[];
+extern const u8 gText_PresentTime[];
+extern const u8 gText_PreviousTime[];
+extern const u8 gText_PleaseResetTime[];
+extern const u8 gText_ClockHasBeenReset[];
+extern const u8 gText_SaveCompleted[];
+extern const u8 gText_SaveFailed2[];
+extern const u8 gText_NoSaveFileCantSetTime[];
+extern const u8 gText_InGameClockUsable[];
+
 // pokemon_storage_system
 extern const u8 gText_WithdrawPokemon[];
 extern const u8 gText_WithdrawMonDescription[];
@@ -1558,5 +1569,7 @@ extern const u8 gText_BootedUpFlyItem[];
 
 extern const u8 gText_CantThrowPokeballNuzlocke[];
 extern const u8 gText_CantThrowPokeballSpeciesClause[];
+
+extern const u8 gText_Day[];
 
 #endif //GUARD_STRINGS_H

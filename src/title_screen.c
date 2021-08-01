@@ -14,6 +14,7 @@
 #include "clear_save_data_screen.h"
 #include "berry_fix_program.h"
 #include "decompress.h"
+#include "reset_rtc_screen.h"
 #include "constants/songs.h"
 
 enum TitleScreenScene
@@ -54,6 +55,7 @@ static void UpdateScanlineEffectRegBuffer(s16 a0);
 static void ScheduleStopScanlineEffect(void);
 static void LoadMainTitleScreenPalsAndResetBgs(void);
 static void CB2_FadeOutTransitionToSaveClearScreen(void);
+static void CB2_FadeOutTransitionToResetRtcScreen(void);
 static void SpriteCallback_TitleScreenFlameOrLeaf(struct Sprite * sprite);
 static void CB2_FadeOutTransitionToBerryFix(void);
 static void LoadSpriteGfxAndPals(void);
@@ -578,6 +580,7 @@ static void SetTitleScreenScene_FadeIn(s16 * data)
 }
 
 #define KEYSTROKE_DELSAVE (B_BUTTON | SELECT_BUTTON | DPAD_UP)
+#define KEYSTROKE_RESET_RTC (B_BUTTON | SELECT_BUTTON | DPAD_LEFT)
 #define KEYSTROKE_BERRY_FIX (B_BUTTON | SELECT_BUTTON)
 
 static void SetTitleScreenScene_Run(s16 * data)
@@ -599,6 +602,12 @@ static void SetTitleScreenScene_Run(s16 * data)
             ScheduleHideSlashSprite(data[6]);
             DestroyTask(FindTaskIdByFunc(Task_TitleScreenMain));
             SetMainCallback2(CB2_FadeOutTransitionToSaveClearScreen);
+        }
+        else if (JOY_HELD(KEYSTROKE_RESET_RTC) == KEYSTROKE_RESET_RTC)
+        {
+            FadeOutBGM(4);
+            BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
+            SetMainCallback2(CB2_FadeOutTransitionToResetRtcScreen);
         }
         else if (JOY_HELD(KEYSTROKE_BERRY_FIX) == KEYSTROKE_BERRY_FIX)
         {
@@ -889,6 +898,12 @@ static void CB2_FadeOutTransitionToSaveClearScreen(void)
 {
     if (!UpdatePaletteFade())
         SetMainCallback2(CB2_SaveClearScreen_Init);
+}
+
+static void CB2_FadeOutTransitionToResetRtcScreen(void)
+{
+    if (!UpdatePaletteFade())
+        SetMainCallback2(CB2_InitResetRtcScreen);
 }
 
 static void CB2_FadeOutTransitionToBerryFix(void)
