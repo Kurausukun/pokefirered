@@ -29,6 +29,8 @@
 #include "berry_powder.h"
 #include "pokemon_jump.h"
 #include "event_scripts.h"
+#include "rtc.h"
+#include "save.h"
 
 // this file's functions
 static void ResetMiniGamesResults(void);
@@ -106,6 +108,9 @@ void ResetMenuAndMonGlobals(void)
 
 void NewGameInitData(void)
 {
+    if (gSaveFileStatus == SAVE_STATUS_EMPTY || gSaveFileStatus == SAVE_STATUS_INVALID)
+        RtcReset();
+
     u8 rivalName[PLAYER_NAME_LENGTH + 1];
 
     StringCopy(rivalName, gSaveBlock1Ptr->rivalName);
