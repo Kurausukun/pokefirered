@@ -625,7 +625,6 @@ static void Task_ShowResetRtcPrompt(u8 taskId)
 
 // Task states for Task_ResetRtcScreen
 enum {
-    MAINSTATE_FADE_IN,
     MAINSTATE_CHECK_SAVE,
     MAINSTATE_START_SET_TIME,
     MAINSTATE_WAIT_SET_TIME,
@@ -643,10 +642,6 @@ static void Task_ResetRtcScreen(u8 taskId)
 
     switch (tState)
     {
-    case MAINSTATE_FADE_IN:
-        BeginNormalPaletteFade(PALETTES_ALL, 1, 0x10, 0, RGB_WHITEALPHA);
-        tState = MAINSTATE_CHECK_SAVE;
-        break;
     case MAINSTATE_CHECK_SAVE:
         if (!gPaletteFade.active)
         {
