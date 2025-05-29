@@ -75,9 +75,9 @@ EWRAM_DATA static u32 sRfuAPIBuffer[RFU_API_BUFF_SIZE_RAM / 4] = {};
 static u8 sResendBlock8[CMD_LENGTH * 2];
 static u16 sResendBlock16[CMD_LENGTH];
 
-struct RfuGameData gHostRfuGameData;
-EWRAM_DATA struct RfuManager gRfu = {};
-u8 gHostRfuUsername[PLAYER_NAME_LENGTH + 1];
+COMMON_DATA struct RfuGameData gHostRfuGameData = {0};
+EWRAM_DATA struct RfuManager gRfu = {0};
+COMMON_DATA u8 gHostRfuUsername[PLAYER_NAME_LENGTH + 1] = {0};
 
 static void InitChildRecvBuffers(void);
 static void InitParentSendData(void);
