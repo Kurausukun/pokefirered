@@ -40,9 +40,6 @@ AI scripts.
 */
 
 static EWRAM_DATA const u8 *sAIScriptPtr = NULL;
-#ifdef BUGFIX
-static u8 EWRAM_DATA sBattler_AI = 0;
-#endif
 extern u8 *gBattleAI_ScriptsTable[];
 
 static void Cmd_if_random_less_than(void);
@@ -315,9 +312,6 @@ void BattleAI_SetupAIData(void)
 
     gBattleResources->AI_ScriptsStack->size = 0;
     gBattlerAttacker = gActiveBattler;
-#ifdef BUGFIX
-    sBattler_AI = gActiveBattler;
-#endif
 
     // Decide a random target battlerId in doubles.
     if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
@@ -334,11 +328,7 @@ void BattleAI_SetupAIData(void)
     // There's only one choice in single battles.
     else
     {
-#ifndef BUGFIX
-        gBattlerTarget = gBattlerAttacker ^ BIT_SIDE;
-#else
-        gBattlerTarget = BATTLE_OPPOSITE(sBattler_AI);
-#endif
+        gBattlerTarget = BATTLE_OPPOSITE(gBattlerAttacker);
     }
 
     // Choose proper trainer ai scripts.
@@ -1197,7 +1187,7 @@ static void Cmd_get_ability(void)
         }
 #else
     if (sAIScriptPtr[1] == AI_USER)
-        battlerId = sBattler_AI;
+        battlerId = gBattlerAttacker;
     else
         battlerId = gBattlerTarget;
     if (gActiveBattler != battlerId)
@@ -1640,7 +1630,7 @@ static void Cmd_if_doesnt_have_move(void)
 #ifndef BUGFIX
             if (gBattleMons[gBattlerAttacker].moves[i] == *movePtr)
 #else
-            if (gBattleMons[sBattler_AI].moves[i] == *movePtr)
+            if (gBattleMons[gBattlerAttacker].moves[i] == *movePtr)
 #endif
                 break;
         }
@@ -1866,7 +1856,7 @@ static void Cmd_get_hold_effect(void)
     }
 #else
     if (sAIScriptPtr[1] == AI_USER)
-        battlerId = sBattler_AI;
+        battlerId = gBattlerAttacker;
     else
         battlerId = gBattlerTarget;
 

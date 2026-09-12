@@ -295,7 +295,7 @@ struct UsedMoves
 #ifndef BUGFIX
 struct BattleHistory
 {
-    /*0x00*/ u16 usedMoves[2][8]; // 0xFFFF means move not used (confuse self hit, etc)
+    /*0x00*/ struct UsedMoves usedMoves[MAX_BATTLERS_COUNT / 2]; // 0xFFFF means move not used (confuse self hit, etc)
     /*0x20*/ u8 abilities[MAX_BATTLERS_COUNT / 2];
     /*0x22*/ u8 itemEffects[MAX_BATTLERS_COUNT / 2];
     /*0x24*/ u16 trainerItems[MAX_BATTLERS_COUNT];
