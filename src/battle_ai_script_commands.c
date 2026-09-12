@@ -1331,7 +1331,7 @@ static void Cmd_if_status_in_party(void)
 {
     struct Pokemon *party;
     struct Pokemon *partyPtr;
-    int i;
+    s32 i;
     u32 statusToCompareTo;
     // u8 battlerId
 
@@ -1384,7 +1384,7 @@ static void Cmd_if_status_not_in_party(void)
 {
     struct Pokemon *party;
     struct Pokemon *partyPtr;
-    int i;
+    s32 i;
     u32 statusToCompareTo;
     //u8 battlerId
 
@@ -1715,7 +1715,7 @@ static void Cmd_if_has_move_with_effect(void)
 
 static void Cmd_if_doesnt_have_move_with_effect(void)
 {
-    int i;
+    s32 i;
 
     switch (sAIScriptPtr[1])
     {
