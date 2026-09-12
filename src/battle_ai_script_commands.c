@@ -488,16 +488,16 @@ static void RecordLastUsedMoveByTarget(void)
 }
 
 // not used
-static void ClearBattlerMoveHistory(u8 battler)
+static void ClearBattlerMoveHistory(u8 battlerId)
 {
     s32 i;
 
 #ifndef BUGFIX
     for (i = 0; i < 8; i++)
-        BATTLE_HISTORY->usedMoves[battler >> 1].moves[i] = MOVE_NONE;
+        BATTLE_HISTORY->usedMoves[battlerId >> 1].moves[i] = MOVE_NONE;
 #else
     for (i = 0; i < MAX_MON_MOVES; i++)
-        BATTLE_HISTORY->usedMoves[battler].moves[i] = MOVE_NONE;
+        BATTLE_HISTORY->usedMoves[battlerId].moves[i] = MOVE_NONE;
 #endif
 }
 
