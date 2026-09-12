@@ -1175,6 +1175,7 @@ static void Cmd_get_ability(void)
         battlerId = gBattlerAttacker;
     else
         battlerId = gBattlerTarget;
+
     if (GetBattlerSide(battlerId) == AI_TARGET)
     {
         u16 side = GET_BATTLER_SIDE(battlerId);
@@ -1190,6 +1191,7 @@ static void Cmd_get_ability(void)
         battlerId = gBattlerAttacker;
     else
         battlerId = gBattlerTarget;
+
     if (gActiveBattler != battlerId)
     {
         if (BATTLE_HISTORY->abilities[battlerId] != 0)
