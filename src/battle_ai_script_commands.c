@@ -314,9 +314,8 @@ void BattleAI_SetupAIData(void)
     }
 
     gBattleResources->AI_ScriptsStack->size = 0;
-#ifndef BUGFIX
     gBattlerAttacker = gActiveBattler;
-#else
+#ifdef BUGFIX
     sBattler_AI = gActiveBattler;
 #endif
 
