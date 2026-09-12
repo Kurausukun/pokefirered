@@ -20,8 +20,19 @@ else
   exit 1
 fi
 
-OBJDUMP="$DEVKITARM/bin/arm-none-eabi-objdump -D -bbinary -marmv4t -Mforce-thumb"
-OPTIONS="--start-address=$(($1)) --stop-address=$(($1 + $2))"
+if [[ -d "$DEVKITARM/bin/" ]]; then
+    OBJDUMP_BIN="$DEVKITARM/bin/arm-none-eabi-objdump"
+else
+    OBJDUMP_BIN="arm-none-eabi-objdump"
+fi
+
+OBJDUMP="$OBJDUMP_BIN -D -bbinary -marmv4t -Mforce-thumb"
+
+if [ $(($1)) -ge $((0x8000000)) ]; then
+    OPTIONS="--adjust-vma=0x8000000 --start-address=$(($1)) --stop-address=$(($1 + $2))"
+else
+    OPTIONS="--start-address=$(($1)) --stop-address=$(($1 + $2))"
+fi
 $OBJDUMP $OPTIONS ${baserom}.gba > ${baserom}.dump || exit 1
 $OBJDUMP $OPTIONS poke${buildname}.gba > poke${buildname}.dump
 diff -u ${baserom}.dump poke${buildname}.dump
